@@ -1,6 +1,12 @@
-# == Variables ==
-# 
-# You can define here your project Variables.
-#
 Variables:
-#  myVariable: value
+
+  threema-connector:
+    
+    # Your Threema ID
+    threemaId: ""
+
+    # Secret from your Threema.Gateway Account
+    secret: ""
+    
+    # Private key from your Threema.Gateway Account
+    privateKey: "" 
