@@ -1,0 +1,8 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
+  "id" : "18AFB09430C43E71",
+  "config" : {
+    "data" : "threema.connector.sendThreemaMessageData"
+  },
+  "elements" : [ ]
+}
