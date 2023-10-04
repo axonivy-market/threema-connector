@@ -1,16 +1,21 @@
 package apitool;
 
-import static util.LocalPropHandler.*;
+import static util.LocalPropHandler.getProperty;
 
 public class ApiConnector {
+  private String threemaId;
+  private String secret;
+  private String privateKey;
 
-  public static String getID(String email) {
-    String id = getProperty("th.id");
-    System.out.println(id);
-    return "";
+  public ApiConnector(){
+    threemaId = getProperty("th.id");
+    secret = getProperty("th.secret");
+    privateKey = getProperty("th.privatekey");
   }
 
-  public static void main(String[] args) {
-    getID("");
+  public String getID(String email) {
+
+
+    return "";
   }
 }
