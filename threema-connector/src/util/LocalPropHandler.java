@@ -10,7 +10,8 @@ public class LocalPropHandler {
   public static String getProperty(String name) {
     try (InputStream input = new FileInputStream("src/resources/config.properties")) {
       Properties props = new Properties();
-      return props.getProperty(name);
+      props.load(input);
+      return props.getProperty(name, "Empty");
     } catch (IOException e) {
       e.printStackTrace();
     }
