@@ -1,0 +1,72 @@
+{
+  "format" : "10.0.0",
+  "id" : "18B1EB743B2E7969",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "threema.connector.sendThreemaMessageData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(sendThreemaMessageData)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "sendThreemaMessageData", "type" : "threema.connector.sendThreemaMessageData" }
+          ],
+          "map" : {
+            "out" : "param.sendThreemaMessageData"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "sendThreemaMessageData", "type" : "threema.connector.sendThreemaMessageData" }
+          ],
+          "map" : {
+            "result.sendThreemaMessageData" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 424, "y" : 64 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "RestClientCall",
+      "name" : "sendMessage",
+      "config" : {
+        "bodyRaw" : [
+          "import static util.TypeConverter.*;",
+          "{",
+          "  from: <%=ivy.var.connector_threemaId%>,",
+          "  to: <%=in.receiverData.threemaId%>,",
+          "  nonce: <%=decode()%>,",
+          "  box: <%=in.encryptedMessage%>",
+          "}"
+        ],
+        "path" : "send_e2e",
+        "clientId" : "af315689-b538-4142-a823-0632d66754d7",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "method" : "POST",
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out" : "in",
+          "out.apiResponse" : "result"
+        },
+        "resultType" : "java.lang.String",
+        "bodyInputType" : "RAW"
+      },
+      "visual" : {
+        "at" : { "x" : 248, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    } ]
+}

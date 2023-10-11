@@ -1,0 +1,8 @@
+sendDemoMessageData #class
+threema.connector.demo #namespace
+receiver String #field
+receiver PERSISTENT #fieldModifier
+plainMessage String #field
+plainMessage PERSISTENT #fieldModifier
+type String #field
+type PERSISTENT #fieldModifier

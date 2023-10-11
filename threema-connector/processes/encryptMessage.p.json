@@ -1,0 +1,73 @@
+{
+  "format" : "10.0.0",
+  "id" : "18B1EAF321633A72",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "threema.connector.sendThreemaMessageData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(sendThreemaMessageData)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "sendThreemaMessageData", "type" : "threema.connector.sendThreemaMessageData" }
+          ],
+          "map" : {
+            "out" : "param.sendThreemaMessageData"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "sendThreemaMessageData", "type" : "threema.connector.sendThreemaMessageData" }
+          ],
+          "map" : {
+            "result.sendThreemaMessageData" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 408, "y" : 64 }
+      }
+    }, {
+      "id" : "f2",
+      "type" : "Script",
+      "name" : "Encrypt Message",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.threema.apitool.results.EncryptResult;",
+            "import ch.threema.apitool.CryptTool;",
+            "import javax.xml.bind.DatatypeConverter;",
+            "",
+            "String privateKey = ivy.var.connector_privateKey;",
+            "String publicKey = in.receiverData.publicKey;",
+            "String msg = in.plainMessage;",
+            "",
+            "Array<byte> encPrivKey = DatatypeConverter.parseHexBinary(privateKey);",
+            "Array<byte> encPubKey = DatatypeConverter.parseHexBinary(publicKey);",
+            "",
+            "CryptTool tool = new CryptTool();",
+            "EncryptResult result = tool.encryptTextMessage(msg, encPrivKey, encPubKey);",
+            "",
+            "out = in;",
+            "out.encryptedMessage = new String(result.getResult());",
+            "out.nonce = DatatypeConverter.printHexBinary(result.getNonce());"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 264, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f1" }
+    } ]
+}

@@ -1,4 +1,4 @@
-package apitool;
+package apiConnection;
 
 import static ch.threema.apitool.CryptTool.*;
 import ch.threema.apitool.results.EncryptResult;

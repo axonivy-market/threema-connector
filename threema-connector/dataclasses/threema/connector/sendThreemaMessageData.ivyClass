@@ -1,2 +1,13 @@
 sendThreemaMessageData #class
 threema.connector #namespace
+receiver List<String> #field
+receiver PERSISTENT #fieldModifier
+apiResponse String #field
+apiResponse PERSISTENT #fieldModifier
+plainMessage String #field
+plainMessage PERSISTENT #fieldModifier
+encryptedMessage String #field
+receiverData threema.connector.receiverData #field
+receiverData PERSISTENT #fieldModifier
+nonce String #field
+nonce PERSISTENT #fieldModifier
