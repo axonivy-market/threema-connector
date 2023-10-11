@@ -1,0 +1,74 @@
+{
+  "format" : "10.0.0",
+  "id" : "18B1ED116183D822",
+  "config" : {
+    "data" : "threema.connector.demo.sendDemoMessageData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "outLink" : "start.ivp"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f3", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 584, "y" : 64 }
+      }
+    }, {
+      "id" : "f4",
+      "type" : "SubProcessCall",
+      "name" : "handleSingleMessage",
+      "config" : {
+        "processCall" : "handleSingleMessage:call(threema.connector.sendThreemaMessageData)",
+        "call" : {
+          "params" : [
+            { "name" : "sendThreemaMessageData", "type" : "threema.connector.sendThreemaMessageData" }
+          ],
+          "map" : {
+            "param.sendThreemaMessageData.receiverData.identifier" : "in.receiver",
+            "param.sendThreemaMessageData.receiverData.type" : "util.LookupType.getByString(in.type)"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 416, "y" : 64 }
+      },
+      "connect" : { "id" : "f6", "to" : "f1" }
+    }, {
+      "id" : "f2",
+      "type" : "DialogCall",
+      "name" : "inputDemoMessage",
+      "config" : {
+        "dialogId" : "threema.connector.demo.inputDemoMessage",
+        "startMethod" : "start(threema.connector.demo.sendDemoMessageData)",
+        "output" : {
+          "map" : {
+            "out" : [
+              "in",
+              "result.sendDemoMessageData"
+            ]
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "sendDemoMessageData", "type" : "threema.connector.demo.sendDemoMessageData" }
+          ],
+          "map" : {
+            "param.sendDemoMessageData" : "in"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 240, "y" : 64 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    } ]
+}

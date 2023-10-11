@@ -1,0 +1,10 @@
+receiverData #class
+threema.connector #namespace
+identifier String #field
+identifier PERSISTENT #fieldModifier
+threemaId String #field
+threemaId PERSISTENT #fieldModifier
+type util.LookupType #field
+type PERSISTENT #fieldModifier
+publicKey String #field
+publicKey PERSISTENT #fieldModifier
