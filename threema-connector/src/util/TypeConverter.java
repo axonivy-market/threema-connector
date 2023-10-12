@@ -7,7 +7,7 @@ public class TypeConverter {
     return DatatypeConverter.printHexBinary(data);
   }
 
-  public static byte[] decode(String data) {
+  public byte[] decode(String data) {
     return DatatypeConverter.parseHexBinary(data);
   }
 }
