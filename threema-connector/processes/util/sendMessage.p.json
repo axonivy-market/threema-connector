@@ -36,7 +36,7 @@
       "id" : "f1",
       "type" : "CallSubEnd",
       "visual" : {
-        "at" : { "x" : 520, "y" : 64 }
+        "at" : { "x" : 424, "y" : 64 }
       }
     }, {
       "id" : "f2",
@@ -54,7 +54,7 @@
         "clientId" : "af315689-b538-4142-a823-0632d66754d7",
         "clientErrorCode" : "ivy:error:rest:client",
         "method" : "POST",
-        "statusErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : ">> Ignore status",
         "responseMapping" : {
           "out" : "in",
           "out.apiResponse" : "response.getStatus() == 200 ? \"Sent successfully (\" + response.getStatus() + \")\" : \"Error (\" + response.getStatus() + \")\""
@@ -64,7 +64,7 @@
         "bodyMediaType" : "application/x-www-form-urlencoded"
       },
       "visual" : {
-        "at" : { "x" : 320, "y" : 64 }
+        "at" : { "x" : 264, "y" : 64 }
       },
       "connect" : { "id" : "f3", "to" : "f1" }
     } ]
