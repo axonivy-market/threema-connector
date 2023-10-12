@@ -79,9 +79,10 @@
           "from" : "ivy.var.connector_threemaId",
           "secret" : "ivy.var.connector_secret"
         },
-        "statusErrorCode" : "ivy:error:rest:client",
+        "statusErrorCode" : ">> Ignore status",
         "responseMapping" : {
           "out" : "in",
+          "out.apiResponse" : "response.getStatus().toString();",
           "out.publicKey" : "result"
         },
         "templateParams" : {
@@ -100,7 +101,11 @@
         "at" : { "x" : 176, "y" : 64 }
       },
       "connect" : [
-        { "id" : "f10", "to" : "f6", "via" : [ { "x" : 176, "y" : 136 }, { "x" : 648, "y" : 136 } ], "condition" : "in.type == util.LookupType.THREEMAID" },
+        { "id" : "f10", "to" : "f6", "via" : [ { "x" : 176, "y" : 136 }, { "x" : 648, "y" : 136 } ], "label" : {
+            "name" : "Skip if ThreemaID is known",
+            "segment" : 2.14,
+            "offset" : { "x" : -224, "y" : 7 }
+          }, "condition" : "in.type == util.LookupType.THREEMAID" },
         { "id" : "f9", "to" : "f3" }
       ]
     }, {
@@ -110,7 +115,9 @@
         "at" : { "x" : 512, "y" : 64 }
       },
       "connect" : [
-        { "id" : "f13", "to" : "f1", "via" : [ { "x" : 512, "y" : 0 }, { "x" : 808, "y" : 0 } ], "condition" : "in.apiResponse != \"200\"" },
+        { "id" : "f13", "to" : "f1", "via" : [ { "x" : 512, "y" : 0 }, { "x" : 808, "y" : 0 } ], "label" : {
+            "name" : "Skip if lookup failed"
+          }, "condition" : "in.apiResponse != \"200\"" },
         { "id" : "f12", "to" : "f6" }
       ]
     } ]

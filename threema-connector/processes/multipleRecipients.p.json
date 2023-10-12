@@ -32,7 +32,10 @@
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
-        "description" : "Subprocess to create receiverData for each recipient"
+        "description" : [
+          "Subprocess to handle sending messages to multiple recipients",
+          "Requires a list of recipients and the unencrypted message"
+        ]
       },
       "connect" : { "id" : "f3", "to" : "f2" }
     }, {

@@ -37,7 +37,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 40, "y" : 64 }
+        "at" : { "x" : 40, "y" : 64 },
+        "description" : "Subprocess to handle sending an encrypted message"
       },
       "connect" : { "id" : "f2", "to" : "f3" }
     }, {
@@ -49,7 +50,7 @@
     }, {
       "id" : "f3",
       "type" : "SubProcessCall",
-      "name" : "util/getReceiverInfo",
+      "name" : "getReceiverInfo",
       "config" : {
         "processCall" : "util/getReceiverInfo:call(threema.connector.receiverData)",
         "output" : {
@@ -67,13 +68,14 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 184, "y" : 64 }
+        "at" : { "x" : 184, "y" : 64 },
+        "description" : "lookup receiver info (threemaId & public key)"
       },
       "connect" : { "id" : "f9", "to" : "f5" }
     }, {
       "id" : "f4",
       "type" : "SubProcessCall",
-      "name" : "util/messageEncryption",
+      "name" : "messageEncryption",
       "config" : {
         "processCall" : "util/messageEncryption:call(threema.connector.receiverData)",
         "output" : {
@@ -91,7 +93,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 384, "y" : 64 }
+        "at" : { "x" : 384, "y" : 64 },
+        "description" : "encrypt the message with receivers public key"
       },
       "connect" : { "id" : "f7", "to" : "f6" }
     }, {
@@ -116,7 +119,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 576, "y" : 64 }
+        "at" : { "x" : 576, "y" : 64 },
+        "description" : "send the encrypted message"
       },
       "connect" : { "id" : "f8", "to" : "f1" }
     }, {
@@ -126,7 +130,11 @@
         "at" : { "x" : 288, "y" : 64 }
       },
       "connect" : [
-        { "id" : "f12", "to" : "f1", "via" : [ { "x" : 288, "y" : 144 }, { "x" : 720, "y" : 144 } ], "condition" : "in.apiResponse != \"200\"" },
+        { "id" : "f12", "to" : "f1", "via" : [ { "x" : 288, "y" : 144 }, { "x" : 720, "y" : 144 } ], "label" : {
+            "name" : "Skip if lookup failed",
+            "segment" : 0.5,
+            "offset" : { "x" : 217, "y" : 30 }
+          }, "condition" : "in.apiResponse != \"200\"" },
         { "id" : "f11", "to" : "f4" }
       ]
     } ]
