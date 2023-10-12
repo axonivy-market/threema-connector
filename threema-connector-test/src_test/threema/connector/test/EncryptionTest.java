@@ -17,15 +17,7 @@ public class EncryptionTest {
     sendThreemaMessageData msgData = new sendThreemaMessageData();
     receiverData recData = new receiverData();
 
-    recData.setIdentifier("");
-    recData.setPublicKey("");
 
-    msgData.setApiResponse("");
-    msgData.setEncryptedMessage("");
-    msgData.setNonce("");
-    msgData.setPlainMessage("Hello World");
-    msgData.setReceiver(null);
-    msgData.setReceiverData(recData);
 
   }
 

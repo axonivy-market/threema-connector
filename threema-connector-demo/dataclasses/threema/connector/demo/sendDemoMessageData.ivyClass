@@ -6,3 +6,5 @@ plainMessage String #field
 plainMessage PERSISTENT #fieldModifier
 type String #field
 type PERSISTENT #fieldModifier
+apiResponse List<String> #field
+apiResponse PERSISTENT #fieldModifier

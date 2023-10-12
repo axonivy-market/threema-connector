@@ -8,3 +8,13 @@ type util.LookupType #field
 type PERSISTENT #fieldModifier
 publicKey String #field
 publicKey PERSISTENT #fieldModifier
+nonce String #field
+nonce PERSISTENT #fieldModifier
+encryptedMessage String #field
+encryptedMessage PERSISTENT #fieldModifier
+plainMessage String #field
+plainMessage PERSISTENT #fieldModifier
+messageJson String #field
+messageJson PERSISTENT #fieldModifier
+apiResponse String #field
+apiResponse PERSISTENT #fieldModifier

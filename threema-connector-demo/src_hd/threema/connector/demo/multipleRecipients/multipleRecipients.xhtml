@@ -4,32 +4,23 @@
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/basic-10.xhtml">
-    <ui:define name="title">inputDemoMessage</ui:define>
+    <ui:define name="title">multipleRecipients</ui:define>
     <ui:define name="content">
 
-      <h3>
-        This is an 
-        <a href="https://developer.axonivy.com/doc/">Html Dialog</a>
-        implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
-      </h3>
+      <h3>Send Message via Threema</h3>
 
       <h:form id="form">
-        <p:messages />
         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" 
           columnClasses="ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4, ui-g-12 ui-md-3 ui-lg-2, ui-g-12 ui-md-9 ui-lg-4">
-          <p></p>
-          <p:selectOneRadio id="line" value="#{data.sendDemoMessageData.type}" layout="lineDirection">
-            <f:selectItem itemLabel="E-Mail" itemValue="email"/>
-            <f:selectItem itemLabel="Phone" itemValue="phone"/>
-          </p:selectOneRadio>
+
+             
           
-          <p:outputLabel for="sendDemoMessageDataReceiver" value="Receiver" />
-          <p:inputText id="sendDemoMessageDataReceiver" value="#{data.sendDemoMessageData.receiver}"></p:inputText>
           
           <p:outputLabel for="sendDemoMessageDataPlainMessage" value="Plain Message" />
-          <p:inputText id="sendDemoMessageDataPlainMessage" value="#{data.sendDemoMessageData.plainMessage}"></p:inputText>
+          <p:inputTextarea id="sendDemoMessageDataPlainMessage" value="#{data.sendDemoMessageData.plainMessage}" rows="6" cols="33" required="true"/>
           
-
+          <p:outputLabel for="sendDemoMessageDataReceiver" value="Receiver (one per line) ThreemaId / Email / Phone (international format without '+')" />
+          <p:inputTextarea id="sendDemoMessageDataReceiver" value="#{data.sendDemoMessageData.receiver}" rows="10" cols="50" required="true"/>
 
         </p:panelGrid>
         <br />
