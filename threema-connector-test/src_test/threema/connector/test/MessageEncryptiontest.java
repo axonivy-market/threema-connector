@@ -2,52 +2,33 @@ package threema.connector.test;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import javax.xml.bind.DatatypeConverter;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
-import ch.ivyteam.ivy.environment.Ivy;
-import ch.threema.apitool.CryptTool;
 import threema.connector.receiverData;
 
 @IvyProcessTest
 public class MessageEncryptiontest {
-  private static final BpmProcess GET_ENCRYPTION_PROCESS = BpmProcess.path("messageEncryption");
+  private final static BpmProcess ENCRYPTION_PROCESS = BpmProcess.name("messageEncryption");
+  private final static String PUBLIC_KEY = "ffbb40cfced42f75c4d83c7d35300c0698bf3ef1ab49ace323a1bbc38ee23f36";
+  private final static String PRIVATE_KEY = "ff364c727068fd6e3e6a711918393fa37649d902402a8eb31af108e79f625d82";
 
-  private static String publicKey;
-  private static String privateKey;
-
-  @BeforeAll
-  void generateKeys() {
-    byte[] privateKeyBytes = new byte[32];
-    byte[] publicKeyBytes = new byte[32];
-
-    CryptTool.generateKeyPair(privateKeyBytes, publicKeyBytes);
-    privateKey = DatatypeConverter.printHexBinary(privateKeyBytes);
-    publicKey = DatatypeConverter.printHexBinary(publicKeyBytes);
-
-    Ivy.log().debug(privateKey);
-  }
 
   @Test
   void encryptMessage(BpmClient bpmClient) {
-    Ivy.log().debug("are you running");
-    BpmElement callable = GET_ENCRYPTION_PROCESS.elementName("call(receiverData)");
+    BpmElement callable = ENCRYPTION_PROCESS.elementName("call(receiverData)");
+
     receiverData recData = new receiverData();
     recData.setPlainMessage("Hello World");
-    recData.setPublicKey(publicKey);
+    recData.setPublicKey(PUBLIC_KEY);
 
 
     ExecutionResult result = bpmClient.start().subProcess(callable).execute(recData);
     receiverData resultData = result.data().last();
+
     assertThat(resultData.getEncryptedMessage()).isNotEmpty();
-
-
-
   }
-
 }
