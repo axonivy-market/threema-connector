@@ -102,7 +102,7 @@ public class GetReceiverInfoTest {
 		History historyId = resultId.history();
 		
 		assertThat(resultDataId.getApiResponse()).contains("200");
-		assertThat(resultDataId.getPublicKey()).isEqualTo("validPubkey");
+		assertThat(resultDataId.getPublicKey()).isEqualTo("ffbb40cfced42f75c4d83c7d35300c0698bf3ef1ab49ace323a1bbc38ee23f36");
 		assertThat(historyId.elementNames()).contains("call(receiverData)");
 		assertThat(historyId.elementNames()).contains("LookupPubKey");
 		assertThat(historyId.elementNames()).doesNotContain("LookupId");
