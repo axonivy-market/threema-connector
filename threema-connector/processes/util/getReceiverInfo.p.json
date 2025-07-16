@@ -128,7 +128,7 @@
         { "id" : "f10", "to" : "f6", "via" : [ { "x" : 176, "y" : 136 }, { "x" : 648, "y" : 136 } ], "label" : {
             "name" : "Skip if ThreemaID is known",
             "segment" : 2.14,
-            "offset" : { "x" : -224, "y" : 7 }
+            "offset" : { "x" : -215, "y" : 11 }
           } },
         { "id" : "f9", "to" : "f3" }
       ]
