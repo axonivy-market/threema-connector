@@ -14,5 +14,3 @@ permissions:
 jobs:
   build:
     uses: axonivy-market/github-workflows/.github/workflows/dev.yml@v6
-    secrets:
-      mvnArgs: -Dthreema.threemaId=${{secrets.THREEMA_ID}} -Dthreema.secret=${{secrets.SECRET}} -Dthreema.privateKey=${{secrets.PRIVATE_KEY}}
