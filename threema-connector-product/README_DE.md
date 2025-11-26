@@ -18,7 +18,7 @@ finden Sie unter [Threema.Gateway API](https://threema.ch/en/gateway).
 
 ![Ergebnisbildschirm](./images/resultScreen.png)
 
-## Einrichtung
+## Setup
 1. Generieren Sie mit dem Prozess „GenerateKeyPair” ein neues Schlüsselpaar.
 2. Erstellen Sie eine „End-to-End-Threema-ID” unter: [Neue ID
    anfordern](https://gateway.threema.ch/en/id-request) <br> Kostenlose Credits
