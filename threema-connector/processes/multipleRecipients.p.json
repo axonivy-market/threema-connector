@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/13.1.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
   "id" : "18B22DA4C8AA09A2",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -39,7 +39,7 @@
           "Subprocess to handle sending messages to multiple recipients",
           "Requires a list of recipients and the unencrypted message"
         ],
-        "icon" : "res:/webContent/icons/threema-icon_black.png?small"
+        "icon" : "res:/webContent/icons/threema-icon_black.png"
       },
       "connect" : [
         { "id" : "f3", "to" : "f2" }
