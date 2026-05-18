@@ -4,7 +4,7 @@
     com.axonivy.connector.<myconnector> or com.axonivy.utils.<myutil> -->
 	<name>threema-connector</name>
 	<artifactId>threema-connector-modules</artifactId>
-	<version>13.2.0</version><!-- identicate your minimal compliant 
+	<version>13.2.1-SNAPSHOT</version><!-- identicate your minimal compliant 
     ivy version with the first 2 digits -->
 	<packaging>pom</packaging>
 
@@ -19,7 +19,7 @@
 	<scm>
 		<developerConnection>
 			scm:git:https://github.com/axonivy-market/threema-connector.git</developerConnection>
-		<tag>v13.2.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<build>
