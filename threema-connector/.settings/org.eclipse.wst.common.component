@@ -10,6 +10,7 @@
       source-path="/src_wsproc" />
     <wb-resource deploy-path="/WEB-INF/classes"
       source-path="/src_dataClasses" />
+      source-path="/src_generated" />
     <property name="context-root" value="threema-connector" />
     <property name="java-output-path"
       value="/threema-connector/target/classes" />
