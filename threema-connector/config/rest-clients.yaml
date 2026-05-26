@@ -1,7 +1,9 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0-dev/config/rest-clients-1.json
 RestClients:
   ThreemaGateway:
-    UUID: af315689-b538-4142-a823-0632d66754d7
+    Name: ThreemaGateway
     Url: https://msgapi.threema.ch
     Icon: res:/webContent/icons/threema-icon_black.png
     Features:
-    - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+      - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+    LegacyUUID: af315689-b538-4142-a823-0632d66754d7

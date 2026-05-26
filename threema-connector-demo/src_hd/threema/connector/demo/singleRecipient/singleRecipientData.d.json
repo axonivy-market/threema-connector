@@ -1,11 +1,9 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "singleRecipientData",
   "namespace" : "threema.connector.demo.singleRecipient",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "sendDemoMessageData",
-    "type" : "threema.connector.demo.sendDemoMessageData",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "threema.connector.demo.sendDemoMessageData"
   } ]
 }
