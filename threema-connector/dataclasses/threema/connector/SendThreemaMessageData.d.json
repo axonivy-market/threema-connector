@@ -1,27 +1,20 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "SendThreemaMessageData",
   "namespace" : "threema.connector",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "receiver",
-    "type" : "List<String>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<String>"
   }, {
-    "name" : "plainMessage",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "plainMessage"
   }, {
     "name" : "receiverData",
-    "type" : "List<threema.connector.ReceiverData>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<threema.connector.ReceiverData>"
   }, {
     "name" : "sendCount",
-    "type" : "Number",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "Number"
   }, {
     "name" : "apiResponses",
-    "type" : "List<String>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<String>"
   } ]
 }
