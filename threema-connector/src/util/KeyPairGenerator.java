@@ -1,6 +1,6 @@
 package util;
 
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 
 import ch.threema.apitool.CryptTool;
 

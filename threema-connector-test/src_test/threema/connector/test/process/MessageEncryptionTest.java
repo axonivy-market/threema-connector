@@ -1,6 +1,6 @@
 package threema.connector.test.process;
 
-import static javax.xml.bind.DatatypeConverter.parseHexBinary;
+import static jakarta.xml.bind.DatatypeConverter.parseHexBinary;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
