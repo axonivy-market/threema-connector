@@ -2,21 +2,17 @@ package threema.connector.test.process;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import com.axonivy.utils.e2etest.context.MultiEnvironmentContextProvider;
 
-import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
-import ch.ivyteam.ivy.environment.AppFixture;
-import ch.ivyteam.ivy.rest.client.RestClients;
 import ch.ivyteam.ivy.scripting.objects.List;
 import threema.connector.ReceiverData;
 import threema.connector.SendThreemaMessageData;
@@ -30,12 +26,6 @@ public class MultipleRecipientsTest extends BaseSetup {
   private final static BpmProcess MULTIPLE_RECIPIENTS_PROCESS = BpmProcess.name("multipleRecipients");
   private final static BpmProcess SINGLE_RECIPIENT = BpmProcess.name("singleRecipient");
   private final static String MESSAGE = "Hello World";
-
-  @AfterEach
-  void afterEach(AppFixture fixture, IApplication app) {
-    RestClients clients = RestClients.of(app);
-    clients.remove("ThreemaGateway");
-  }
 
   @TestTemplate
   void prepareMultipleRecipients(BpmClient bpmClient) {
