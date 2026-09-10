@@ -45,22 +45,19 @@
             </goals>
             <configuration>
               <target>
-                <mkdir dir="${project.basedir}/lib" />
-                <get src="https://gateway.threema.ch/sdk/threema-msgapi-sdk-java-${threema.sdk.version}.zip" dest="${project.basedir}/lib/threema-msgapi-tool.zip" />
-                <unzip src="${project.basedir}/lib/threema-msgapi-tool.zip" dest="${project.basedir}/lib" overwrite="false">
+                <mkdir dir="${project.build.directory}/threema-msgapi-tool" />
+                <get src="https://gateway.threema.ch/sdk/threema-msgapi-sdk-java-${threema.sdk.version}.zip" dest="${project.build.directory}/threema-msgapi-tool/threema-msgapi-tool.zip" />
+                <unzip src="${project.build.directory}/threema-msgapi-tool/threema-msgapi-tool.zip" dest="${project.build.directory}/threema-msgapi-tool" overwrite="false">
                   <patternset includes="*/threema-msgapi-tool.jar" />
                   <mapper type="flatten" />
                 </unzip>
-                <unzip src="${project.basedir}/lib/threema-msgapi-tool.jar" dest="${project.basedir}/lib/unpackedJar" overwrite="false">
+                <unzip src="${project.build.directory}/threema-msgapi-tool/threema-msgapi-tool.jar" dest="${project.build.directory}/threema-msgapi-tool/unpackedJar" overwrite="false">
                   <patternset>
                     <exclude name="javax/**" />
                     <exclude name="org/**" />
                   </patternset>
                 </unzip>
-                <delete file="${project.basedir}/lib/threema-msgapi-tool.jar" />
-                <zip basedir="${project.basedir}/lib/unpackedJar" destfile="${project.basedir}/../threema-connector/lib/threema-msgapi-tool.jar" />
-                <delete file="${project.basedir}/lib/threema-msgapi-tool.zip" />
-                <delete dir="${project.basedir}/lib/unpackedJar" />
+                <zip basedir="${project.build.directory}/threema-msgapi-tool/unpackedJar" destfile="${project.basedir}/../threema-connector/lib/threema-msgapi-tool.jar" />
               </target>
             </configuration>
           </execution>
