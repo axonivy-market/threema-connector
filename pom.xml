@@ -9,6 +9,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+	  <module>threema-connector-sdk</module>
 		<module>threema-connector</module>
 		<module>threema-connector-demo</module>
 		<module>threema-connector-test</module>

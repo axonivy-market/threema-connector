@@ -24,7 +24,7 @@
       <groupId>ch.threema.api</groupId>
       <artifactId>threema-msgapi-tool</artifactId>
       <version>${threema.sdk.version}</version>
-      <scope>system</scope>
+      <scope>system</scope><!-- provided at mvn runtime: see threema-connector-sdk -->
       <systemPath>${basedir}/lib/threema-msgapi-tool.jar</systemPath>
     </dependency>
   </dependencies>
@@ -59,38 +59,6 @@
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>download-threema-msgapi-tool</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target>
-                <mkdir dir="${project.basedir}/lib" />
-                <get src="https://gateway.threema.ch/sdk/threema-msgapi-sdk-java-${threema.sdk.version}.zip" dest="${project.basedir}/lib/threema-msgapi-tool.zip" />
-                <unzip src="${project.basedir}/lib/threema-msgapi-tool.zip" dest="${project.basedir}/lib" overwrite="false">
-                  <patternset includes="*/threema-msgapi-tool.jar" />
-                  <mapper type="flatten" />
-                </unzip>
-                <unzip src="${project.basedir}/lib/threema-msgapi-tool.jar" dest="${project.basedir}/lib/unpackedJar" overwrite="false">
-                  <patternset>
-                    <exclude name="javax/**" />
-                    <exclude name="org/**" />
-                  </patternset>
-                </unzip>
-                <delete file="${project.basedir}/lib/threema-msgapi-tool.jar" />
-                <zip basedir="${project.basedir}/lib/unpackedJar" destfile="${project.basedir}/lib/threema-msgapi-tool.jar" />
-                <delete file="${project.basedir}/lib/threema-msgapi-tool.zip" />
-                <delete dir="${project.basedir}/lib/unpackedJar" />
-              </target>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
