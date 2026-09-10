@@ -3,8 +3,10 @@
   "simpleName" : "KeyPairData",
   "namespace" : "threema.connector.demo.KeyPair",
   "fields" : [ {
-    "name" : "publicKey"
+    "name" : "publicKey",
+    "modifiers" : [ ]
   }, {
-    "name" : "privatekey"
+    "name" : "privatekey",
+    "modifiers" : [ ]
   } ]
 }

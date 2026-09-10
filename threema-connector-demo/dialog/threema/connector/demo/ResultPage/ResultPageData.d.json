@@ -4,9 +4,11 @@
   "namespace" : "threema.connector.demo.ResultPage",
   "fields" : [ {
     "name" : "sendDemoMessageData",
-    "type" : "threema.connector.demo.sendDemoMessageData"
+    "type" : "threema.connector.demo.sendDemoMessageData",
+    "modifiers" : [ ]
   }, {
     "name" : "statusData",
-    "type" : "List<threema.connector.demo.Status>"
+    "type" : "List<threema.connector.demo.Status>",
+    "modifiers" : [ ]
   } ]
 }

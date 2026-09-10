@@ -4,6 +4,7 @@
   "namespace" : "threema.connector.demo.singleRecipient",
   "fields" : [ {
     "name" : "sendDemoMessageData",
-    "type" : "threema.connector.demo.sendDemoMessageData"
+    "type" : "threema.connector.demo.sendDemoMessageData",
+    "modifiers" : [ ]
   } ]
 }

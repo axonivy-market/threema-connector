@@ -1,6 +1,6 @@
 package util;
 
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.threema.apitool.CryptTool;
 import ch.threema.apitool.results.EncryptResult;

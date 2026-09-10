@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process-2.json",
   "id" : "18B8EEA3B9A84FAE",
   "config" : {
     "data" : "threema.connector.demo.sendDemoMessageData"
