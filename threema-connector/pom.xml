@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.axonivy.ivy.api</groupId>
     <artifactId>ivy-project-parent</artifactId>
-    <version>14.0.0-SNAPSHOT</version>
+    <version>14.0.0</version>
     <relativePath></relativePath>
   </parent>
   <groupId>com.axonivy.connector.threema</groupId>
@@ -24,7 +24,7 @@
       <groupId>ch.threema.api</groupId>
       <artifactId>threema-msgapi-tool</artifactId>
       <version>${threema.sdk.version}</version>
-      <scope>system</scope><!-- provided at mvn runtime: see threema-connector-sdk -->
+      <scope>system</scope>
       <systemPath>${basedir}/lib/threema-msgapi-tool.jar</systemPath>
     </dependency>
   </dependencies>
