@@ -11,6 +11,6 @@ permissions:
 
 jobs:
   build:
-    uses: axonivy-market/github-workflows/.github/workflows/ci.yml@v6
+    uses: axonivy-market/github-workflows/.github/workflows/ci.yml@v14
     secrets:
       mvnArgs: -Dthreema.threemaId=${{secrets.THREEMA_ID}} -Dthreema.secret=${{secrets.SECRET}} -Dthreema.privateKey=${{secrets.PRIVATE_KEY}} -DtestEnvironment=E2E
